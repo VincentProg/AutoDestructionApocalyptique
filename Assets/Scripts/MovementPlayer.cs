@@ -9,6 +9,7 @@ public class MovementPlayer : MonoBehaviour
     [SerializeField] float _speed = 3f;
 
     [SerializeField] Rigidbody _rigidbody;
+    [SerializeField] float _groundDistance = 0.1f;
 
     private void Update()
     {
@@ -19,11 +20,26 @@ public class MovementPlayer : MonoBehaviour
     void RotateCar()
     {
         float direction = Input.GetAxisRaw("Horizontal");
-        _rigidbody.rotation = Quaternion.Euler(0, direction * (_speedRotation / 90) + _rigidbody.rotation.eulerAngles.y, 0); 
+        _rigidbody.rotation = Quaternion.Euler(_rigidbody.rotation.eulerAngles.x, direction * (_speedRotation / 90) + _rigidbody.rotation.eulerAngles.y, _rigidbody.rotation.eulerAngles.z); 
     }
 
     void MoveCar()
     {
-        _rigidbody.velocity = _speed * transform.forward;
+
+        if (Input.GetKey(KeyCode.Z) && CheckIfOnGround())
+        {
+            _rigidbody.velocity = _speed * transform.forward;
+        }
+    }
+
+    bool CheckIfOnGround()
+    {
+         return Physics.Raycast(transform.position, -transform.up, _groundDistance);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, transform.position - transform.up * _groundDistance);
     }
 }
