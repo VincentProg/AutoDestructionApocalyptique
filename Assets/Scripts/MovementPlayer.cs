@@ -8,8 +8,15 @@ public class MovementPlayer : MonoBehaviour
     [SerializeField] float _highSpeed = 5f;
     float _currentSpeed;
     [SerializeField] float _groundDistance = 0.1f;
+    [SerializeField] float _loadingBoostDuration = 1f;
+    [SerializeField] float _boostDuration = 2f;
+    [SerializeField] float _boostSpeed = 15f;
+    bool _hasLoadedSpeedBoost = false;
+    bool _isSpeedBoostActive = false;
+    bool _isAtHighSpeed = true;
 
     [SerializeField] Rigidbody _rigidbody;
+    Coroutine _routineBoost;
 
     private void Awake()
     {
@@ -18,6 +25,8 @@ public class MovementPlayer : MonoBehaviour
 
     private void Update()
     {
+        CheckBoost();
+        ApplyBoost();
         ChangeSpeed();
         RotateCar();
         MoveCar();
@@ -53,12 +62,61 @@ public class MovementPlayer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.T) && _currentSpeed != _highSpeed)
         {
-            _currentSpeed = _highSpeed;
+            _isAtHighSpeed = true;
+            if (!_isSpeedBoostActive)
+            {
+                _currentSpeed = _highSpeed;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.G) && _currentSpeed != _lowSpeed)
         {
-            _currentSpeed = _lowSpeed;
+            _isAtHighSpeed = false;
+            if (!_isSpeedBoostActive)
+            {
+                _currentSpeed = _lowSpeed;
+            }
         }
+    }
+
+    float GetSpeedWithoutBoost()
+    {
+        return _isAtHighSpeed? _highSpeed:_lowSpeed;
+    }
+    void CheckBoost()
+    {
+        if (!_hasLoadedSpeedBoost && Input.GetKeyDown(KeyCode.H))
+        {
+            _routineBoost = StartCoroutine(CoroutineBoostLoading());
+        }
+        if (_routineBoost != null && Input.GetKeyUp(KeyCode.H))
+        {
+            StopCoroutine(_routineBoost);
+            _routineBoost = null;
+        }
+    }
+
+    void ApplyBoost()
+    {
+        if (_hasLoadedSpeedBoost && Input.GetKeyDown(KeyCode.Y))
+        {
+            _hasLoadedSpeedBoost = false;
+            StartCoroutine(CoroutineApplyBoost());
+        }
+    }
+
+    IEnumerator CoroutineBoostLoading()
+    {
+        yield return new WaitForSeconds(_loadingBoostDuration);
+        _hasLoadedSpeedBoost = true;
+        Debug.Log("BOOST LOADED");
+    }
+    IEnumerator CoroutineApplyBoost()
+    {
+        _isSpeedBoostActive = true;
+        _currentSpeed = _boostSpeed;
+        yield return new WaitForSeconds(_boostDuration);
+        _currentSpeed = GetSpeedWithoutBoost();
+        _isSpeedBoostActive = false;
     }
 }

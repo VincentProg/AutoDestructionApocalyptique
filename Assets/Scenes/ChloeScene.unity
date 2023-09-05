@@ -873,6 +873,10 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8470286491125085463, guid: 82d0132fbdf52f64694a32d664c1b03a, type: 3}
+      propertyPath: _boostSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8470286491125085463, guid: 82d0132fbdf52f64694a32d664c1b03a, type: 3}
       propertyPath: _speedRotation
       value: 50
       objectReference: {fileID: 0}
