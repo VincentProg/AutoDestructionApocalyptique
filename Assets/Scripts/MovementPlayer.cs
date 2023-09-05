@@ -1,18 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Jobs;
 
 public class MovementPlayer : MonoBehaviour
 {
     [SerializeField] float _speedRotation = 2f;
-    [SerializeField] float _speed = 3f;
+    [SerializeField] float _lowSpeed = 10f;
+    [SerializeField] float _highSpeed = 5f;
+    [SerializeField] float _currentSpeed;
 
     [SerializeField] Rigidbody _rigidbody;
     [SerializeField] float _groundDistance = 0.1f;
 
+    private void Awake()
+    {
+        _currentSpeed = _highSpeed;    
+    }
+
     private void Update()
     {
+        ChangeSpeed();
         RotateCar();
         MoveCar();
     }
@@ -26,9 +31,9 @@ public class MovementPlayer : MonoBehaviour
     void MoveCar()
     {
 
-        if (Input.GetKey(KeyCode.Z) && CheckIfOnGround())
+        if (CheckIfOnGround())
         {
-            _rigidbody.velocity = _speed * transform.forward;
+            _rigidbody.velocity = _currentSpeed * transform.forward;
         }
     }
 
@@ -41,5 +46,23 @@ public class MovementPlayer : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, transform.position - transform.up * _groundDistance);
+    }
+
+    void ChangeSpeed()
+    {
+        if (Input.GetKeyDown(KeyCode.T) && _currentSpeed != _highSpeed)
+        {
+            _currentSpeed = _highSpeed;
+        }
+
+        if (Input.GetKeyDown(KeyCode.G) && _currentSpeed != _lowSpeed)
+        {
+            _currentSpeed = _lowSpeed;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        _rigidbody.velocity = Vector3.zero;
     }
 }
