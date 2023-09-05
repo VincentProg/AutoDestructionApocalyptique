@@ -5,10 +5,14 @@ public class MovementPlayer : MonoBehaviour
     [SerializeField] float _speedRotation = 2f;
     [SerializeField] float _lowSpeed = 10f;
     [SerializeField] float _highSpeed = 5f;
-    [SerializeField] float _currentSpeed;
+    float _currentSpeed;
+    [SerializeField] float _groundDistance = 0.1f;
+    [SerializeField] float _loadingBoostDuration = 1f;
+    [SerializeField] float _boostDuration = 2f;
+    [SerializeField] float _boostSpeed = 15f;
+    //[SerializeField] float _;
 
     [SerializeField] Rigidbody _rigidbody;
-    [SerializeField] float _groundDistance = 0.1f;
 
     private void Awake()
     {
@@ -25,7 +29,7 @@ public class MovementPlayer : MonoBehaviour
     void RotateCar()
     {
         float direction = Input.GetAxisRaw("Horizontal");
-        _rigidbody.rotation = Quaternion.Euler(_rigidbody.rotation.eulerAngles.x, direction * (_speedRotation / 90) + _rigidbody.rotation.eulerAngles.y, _rigidbody.rotation.eulerAngles.z); 
+        _rigidbody.rotation = Quaternion.Euler(_rigidbody.rotation.eulerAngles.x, direction * (_speedRotation / 45) + _rigidbody.rotation.eulerAngles.y, _rigidbody.rotation.eulerAngles.z); 
     }
 
     void MoveCar()
@@ -61,8 +65,13 @@ public class MovementPlayer : MonoBehaviour
         }
     }
 
+    void CheckBoost()
+    {
+        //bool hasBoost = Input.GetKey(KeyCode.H);
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
-        _rigidbody.velocity = Vector3.zero;
+        //_rigidbody.velocity = Vector3.zero;
     }
 }
