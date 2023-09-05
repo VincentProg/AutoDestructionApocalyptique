@@ -112,8 +112,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speedRotation: 15
-  _speed: 3
+  _lowSpeed: 5
+  _highSpeed: 10
+  _currentSpeed: 0
   _rigidbody: {fileID: 8470286491125085462}
+  _groundDistance: 0.1
 --- !u!54 &8470286491125085462
 Rigidbody:
   m_ObjectHideFlags: 0
