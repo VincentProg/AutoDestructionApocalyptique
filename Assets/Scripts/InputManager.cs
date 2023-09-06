@@ -52,7 +52,6 @@ public class InputManager : MonoBehaviour
         } else
         {
             _instance = this;
-            DontDestroyOnLoad(this.gameObject);
         }
     }
 
