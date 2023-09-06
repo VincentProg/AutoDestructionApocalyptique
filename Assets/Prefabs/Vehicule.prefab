@@ -132,13 +132,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87ff6b4886b55b14f92315b6694de0a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speedRotation: 100
-  _lowSpeed: 15
-  _highSpeed: 50
+  _speedRotation: 10
+  _lowSpeed: 1000
+  _highSpeed: 4000
   _groundDistance: 2
   _loadingBoostDuration: 1
   _boostDuration: 2
-  _boostSpeed: 100
+  _boostSpeed: 4000
   _rigidbody: {fileID: 545381830}
 --- !u!114 &545381832
 MonoBehaviour:
