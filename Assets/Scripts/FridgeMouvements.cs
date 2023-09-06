@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class FridgeMouvements : MonoBehaviour
 {
-    [SerializeField] private KeyCode _jump, _left, _right;
     [SerializeField] private Transform _car;
     private Rigidbody _rb;
     
@@ -19,17 +18,17 @@ public class FridgeMouvements : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(_jump))
+        if (Input.GetKeyDown(InputManager.Instance.GetKeyCodeFromInput(MachineInput.ButtonUp)))
         {
             Jump();
         }
 
-        if (Input.GetKey(_left))
+        if (Input.GetKey(InputManager.Instance.GetKeyCodeFromInput(MachineInput.ButtonLeft)))
         {
             AddSideForce(false);
         }
 
-        if (Input.GetKey(_right))
+        if (Input.GetKey(InputManager.Instance.GetKeyCodeFromInput(MachineInput.ButtonRight)))
         {
             AddSideForce(true);
         }
