@@ -71,7 +71,7 @@ public class MovementPlayer : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(_inputManager.KeyCodeLeverLeftUp) && _currentSpeed != _lowSpeed)
+        if (Input.GetKeyDown(_inputManager.KeyCodeLeverLeftDown) && _currentSpeed != _lowSpeed)
         {
             _isAtHighSpeed = false;
             if (!_isSpeedBoostActive)
