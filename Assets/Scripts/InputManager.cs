@@ -3,10 +3,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Inputs", menuName = "AutoDestructionInputs/Add inputs")]
 public class InputManager : ScriptableObject
 {
+    [Header("Joystick Left")]
     [SerializeField] KeyCode _keyCodeLeverLeftUp;
     [SerializeField] KeyCode _keyCodeLeverLeftDown;
+    [Header("Joystick Right")]
     [SerializeField] KeyCode _keyCodeLeverRightUp;
     [SerializeField] KeyCode _keyCodeLeverRightDown;
+    [Header("Buttons")]
     [SerializeField] KeyCode _keyCodeUp;
     [SerializeField] KeyCode _keyCodeLeft;
     [SerializeField] KeyCode _keyCodeRight;
@@ -23,7 +26,7 @@ public class InputManager : ScriptableObject
     public KeyCode KeyCodeLeft { get => _keyCodeLeft;}
     public KeyCode KeyCodeRight { get => _keyCodeRight;}
     public KeyCode KeyCodeDown { get => _keyCodeDown; }
-    public KeyCode KeyCodeWhiteButton { get => _keyCodeWhiteButton; }
-    public KeyCode KeyCodeBlackButton { get => _keyCodeBlackButton; }
+    public KeyCode KeyCodeWhite { get => _keyCodeWhiteButton; }
+    public KeyCode KeyCodeBlack { get => _keyCodeBlackButton; }
     #endregion
 }
