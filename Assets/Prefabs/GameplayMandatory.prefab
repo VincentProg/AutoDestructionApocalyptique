@@ -770,15 +770,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 545381835, guid: 82d0132fbdf52f64694a32d664c1b03a, type: 3}
       propertyPath: _lowSpeed
-      value: 15
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 545381835, guid: 82d0132fbdf52f64694a32d664c1b03a, type: 3}
       propertyPath: _highSpeed
-      value: 50
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 545381835, guid: 82d0132fbdf52f64694a32d664c1b03a, type: 3}
       propertyPath: _boostSpeed
-      value: 100
+      value: 4000
       objectReference: {fileID: 0}
     - target: {fileID: 545381835, guid: 82d0132fbdf52f64694a32d664c1b03a, type: 3}
       propertyPath: _speedRotation
