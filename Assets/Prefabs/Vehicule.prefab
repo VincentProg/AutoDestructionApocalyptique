@@ -111,12 +111,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87ff6b4886b55b14f92315b6694de0a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speedRotation: 15
+  _speedRotation: 50
   _lowSpeed: 5
-  _highSpeed: 10
-  _currentSpeed: 0
+  _highSpeed: 15
+  _groundDistance: 0.55
+  _loadingBoostDuration: 1
+  _boostDuration: 2
+  _boostSpeed: 20
   _rigidbody: {fileID: 8470286491125085462}
-  _groundDistance: 0.1
 --- !u!54 &8470286491125085462
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -131,5 +133,5 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0

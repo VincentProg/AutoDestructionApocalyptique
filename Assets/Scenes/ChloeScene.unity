@@ -860,25 +860,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8470286491125085462, guid: 82d0132fbdf52f64694a32d664c1b03a, type: 3}
-      propertyPath: m_Constraints
-      value: 80
-      objectReference: {fileID: 0}
     - target: {fileID: 8470286491125085463, guid: 82d0132fbdf52f64694a32d664c1b03a, type: 3}
       propertyPath: _speed
       value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8470286491125085463, guid: 82d0132fbdf52f64694a32d664c1b03a, type: 3}
-      propertyPath: _highSpeed
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 8470286491125085463, guid: 82d0132fbdf52f64694a32d664c1b03a, type: 3}
-      propertyPath: _speedRotation
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 8470286491125085463, guid: 82d0132fbdf52f64694a32d664c1b03a, type: 3}
-      propertyPath: _groundDistance
-      value: 0.55
       objectReference: {fileID: 0}
     - target: {fileID: 8470286491125085464, guid: 82d0132fbdf52f64694a32d664c1b03a, type: 3}
       propertyPath: m_RootOrder
