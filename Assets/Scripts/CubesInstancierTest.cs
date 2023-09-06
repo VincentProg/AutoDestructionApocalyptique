@@ -13,8 +13,8 @@ public class CubesInstancierTest : MonoBehaviour
     {
         for (int i = 0; i < nbrCubes; i++)
         {
-            int x = Random.Range(-500, 500);
-            int z = Random.Range(-500, 500);
+            int x = Random.Range(-5000, 5000);
+            int z = Random.Range(-5000, 5000);
             Instantiate(cube, new Vector3(x, 3, z),
                 Quaternion.Euler(Random.Range(0.0f, 360.0f), Random.Range(0.0f, 360.0f), Random.Range(0.0f, 360.0f)));
         }
