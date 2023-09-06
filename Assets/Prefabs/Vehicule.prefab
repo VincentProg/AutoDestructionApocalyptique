@@ -156,7 +156,7 @@ MonoBehaviour:
   _groundDistance: 2
   _loadingBoostDuration: 1
   _boostDuration: 2
-  _boostSpeed: 20
+  _boostSpeed: 80
   _rigidbody: {fileID: 545381830}
   _inputManager: {fileID: 11400000, guid: c8bc810ddb41da74d986fffe6ced252e, type: 2}
 --- !u!114 &545381832
@@ -300,10 +300,10 @@ ConfigurableJoint:
   m_AngularZMotion: 2
   m_LinearLimitSpring:
     spring: 1000
-    damper: 30
+    damper: 10000
   m_LinearLimit:
     limit: 8
-    bounciness: 1
+    bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
     spring: 0
