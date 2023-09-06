@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DamageCollisionHandler : MonoBehaviour
 {
-    [SerializeField] ExplosivityGauge _explosivityGauge;
+    [SerializeField] ExplosionGauge _explosivityGauge;
     [SerializeField] int _damagePerImpact = 1;
     [SerializeField] float _cooldownImpact = 3f;
     

@@ -15,27 +15,39 @@ public class MovementPlayer : MonoBehaviour
     bool _hasLoadedSpeedBoost = false;
     bool _isSpeedBoostActive = false;
     bool _isAtHighSpeed = true;
+    bool _isStopped = false;
 
     [SerializeField] Rigidbody _rigidbody;
     Coroutine _routineBoost;
+    [SerializeField] WinLossConditions _winLossConditions;
 
     private void Awake()
     {
         _currentSpeed = _highSpeed;    
     }
+    private void Start()
+    {
+        _winLossConditions.OnWinForklift += OnWin;
+        _winLossConditions.OnWinFridge += OnWin;
+    }
 
     private void Update()
     {
-        CheckBoost();
-        ApplyBoost();
-        ChangeSpeed();
-
+        if (!_isStopped)
+        {
+            CheckBoost();
+            ApplyBoost();
+            ChangeSpeed();
+        }
     }
     
     private void FixedUpdate()
     {
-        RotateCar();
-        MoveCar();
+        if (!_isStopped)
+        {
+            RotateCar();
+            MoveCar();
+        }
     }
 
     void RotateCar()
@@ -125,5 +137,11 @@ public class MovementPlayer : MonoBehaviour
         yield return new WaitForSeconds(_boostDuration);
         _currentSpeed = GetSpeedWithoutBoost();
         _isSpeedBoostActive = false;
+    }
+
+    void OnWin(bool fridgeWon)
+    {
+        _isStopped = true;
+        _rigidbody.velocity = Vector3.zero;
     }
 }
