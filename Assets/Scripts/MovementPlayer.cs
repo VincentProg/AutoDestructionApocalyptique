@@ -16,6 +16,7 @@ public class MovementPlayer : MonoBehaviour
     bool _isAtHighSpeed = true;
 
     [SerializeField] Rigidbody _rigidbody;
+    [SerializeField]InputManager _inputManager;
     Coroutine _routineBoost;
 
     private void Awake()
@@ -60,7 +61,8 @@ public class MovementPlayer : MonoBehaviour
 
     void ChangeSpeed()
     {
-        if (Input.GetKeyDown(KeyCode.T) && _currentSpeed != _highSpeed)
+        
+        if (Input.GetKeyDown(_inputManager.KeyCodeLeverLeftUp) && _currentSpeed != _highSpeed)
         {
             _isAtHighSpeed = true;
             if (!_isSpeedBoostActive)
@@ -69,7 +71,7 @@ public class MovementPlayer : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.G) && _currentSpeed != _lowSpeed)
+        if (Input.GetKeyDown(_inputManager.KeyCodeLeverLeftUp) && _currentSpeed != _lowSpeed)
         {
             _isAtHighSpeed = false;
             if (!_isSpeedBoostActive)
@@ -85,11 +87,11 @@ public class MovementPlayer : MonoBehaviour
     }
     void CheckBoost()
     {
-        if (!_hasLoadedSpeedBoost && Input.GetKeyDown(KeyCode.H))
+        if (!_hasLoadedSpeedBoost && Input.GetKeyDown(_inputManager.KeyCodeLeverRightDown))
         {
             _routineBoost = StartCoroutine(CoroutineBoostLoading());
         }
-        if (_routineBoost != null && Input.GetKeyUp(KeyCode.H))
+        if (_routineBoost != null && Input.GetKeyUp(_inputManager.KeyCodeLeverRightDown))
         {
             StopCoroutine(_routineBoost);
             _routineBoost = null;
@@ -98,7 +100,7 @@ public class MovementPlayer : MonoBehaviour
 
     void ApplyBoost()
     {
-        if (_hasLoadedSpeedBoost && Input.GetKeyDown(KeyCode.Y))
+        if (_hasLoadedSpeedBoost && Input.GetKeyDown(_inputManager.KeyCodeLeverRightUp))
         {
             _hasLoadedSpeedBoost = false;
             StartCoroutine(CoroutineApplyBoost());
