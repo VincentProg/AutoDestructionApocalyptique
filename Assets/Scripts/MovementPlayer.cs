@@ -35,7 +35,7 @@ public class MovementPlayer : MonoBehaviour
     void RotateCar()
     {
         float direction = InputManager.Instance.GetWheelValue();
-        _rigidbody.rotation = Quaternion.Euler(_rigidbody.rotation.eulerAngles.x, direction * (_speedRotation / 90) + _rigidbody.rotation.eulerAngles.y, _rigidbody.rotation.eulerAngles.z); 
+        _rigidbody.rotation = Quaternion.Euler(_rigidbody.rotation.eulerAngles.x, direction * _speedRotation * Time.deltaTime + _rigidbody.rotation.eulerAngles.y, _rigidbody.rotation.eulerAngles.z); 
     }
 
     void MoveCar()
@@ -43,7 +43,7 @@ public class MovementPlayer : MonoBehaviour
 
         if (CheckIfOnGround())
         {
-            _rigidbody.velocity = _currentSpeed * transform.forward;
+            _rigidbody.velocity = _currentSpeed * Time.deltaTime * transform.forward;
         }
     }
 
