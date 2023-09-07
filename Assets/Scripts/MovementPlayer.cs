@@ -56,21 +56,35 @@ public class MovementPlayer : MonoBehaviour
     {
         float direction = InputManager.Instance.GetWheelValue();
 
-        
-        Quaternion maxAngle = Quaternion.LookRotation(Quaternion.Euler(0f, _angleRotationMax, 0f) * _camera.transform.forward);
-        Quaternion minAngle = Quaternion.LookRotation(Quaternion.Euler(0f, - _angleRotationMax, 0f) * _camera.transform.forward);
+        Quaternion rightAngle = Quaternion.LookRotation(Quaternion.Euler(0f, _angleRotationMax, 0f) * _camera.transform.forward);
+        Quaternion leftAngle = Quaternion.LookRotation(Quaternion.Euler(0f, -_angleRotationMax, 0f) * _camera.transform.forward);
         
         float valueClamped = direction * _speedRotation * Time.fixedDeltaTime + _rigidbody.rotation.eulerAngles.y;
-        if (valueClamped < minAngle.eulerAngles.y && valueClamped > 180f)
+        if (direction < 0f)
         {
-            valueClamped = minAngle.eulerAngles.y;
+            bool checkIfZero = IsZeroBetweenTwoValues(leftAngle.eulerAngles.y, rightAngle.eulerAngles.y);
+            if (valueClamped < leftAngle.eulerAngles.y && ((checkIfZero && valueClamped > rightAngle.eulerAngles.y) || !checkIfZero))
+            {
+                valueClamped = leftAngle.eulerAngles.y;
+            }
         }
-        if (valueClamped > maxAngle.eulerAngles.y && valueClamped < 180f)
+
+        if (direction > 0f)
         {
-            valueClamped = maxAngle.eulerAngles.y;
+            bool checkIfZero = IsZeroBetweenTwoValues(leftAngle.eulerAngles.y, rightAngle.eulerAngles.y);
+            if (valueClamped > rightAngle.eulerAngles.y && ((checkIfZero && valueClamped < leftAngle.eulerAngles.y) || !checkIfZero))
+
+            {
+                valueClamped = rightAngle.eulerAngles.y;
+            }
         }
         Quaternion rotation = Quaternion.Euler(_rigidbody.rotation.eulerAngles.x, valueClamped, _rigidbody.rotation.eulerAngles.z);
         _rigidbody.rotation = rotation; 
+    }
+
+    bool IsZeroBetweenTwoValues(float angleLeft,float angleRight)
+    {
+        return (angleLeft - 180) > 0f && (angleRight - 180) < 0f;
     }
 
     void MoveCar()
