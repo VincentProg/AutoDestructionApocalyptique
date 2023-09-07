@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class DamageCollisionHandler : MonoBehaviour
 {
@@ -10,10 +12,26 @@ public class DamageCollisionHandler : MonoBehaviour
 
     [SerializeField] private Rigidbody _fridgeRb;
     [SerializeField] private float _strengthImpact;
-    
+
+    [SerializeField]
+    private List<AudioSource> _audios;
+
+    private void Start()
+    {
+        foreach (AudioSource source in _audios)
+        {
+            source.clip.LoadAudioData();
+        }
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.layer == 7)
+            return;
+        
+        int rand = Random.Range(0, _audios.Count);
+        _audios[rand].Play();
+        
         if (collision.gameObject.tag == "Obstacle" && !_explosivityGauge.IsInvincible)
         {
             StartCoroutine(CoroutineCoolDown());

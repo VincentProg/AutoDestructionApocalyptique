@@ -635,7 +635,10 @@ MonoBehaviour:
   _cooldownImpact: 1
   _fridgeRb: {fileID: 1734596794}
   _strengthImpact: 2
-  _audios: []
+  _audios:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &5513603745779640866
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,8 +13,8 @@ public class RacksInstancierTest : MonoBehaviour
     {
         for (int i = 0; i < nbrCubes; i++)
         {
-            int x = Random.Range(-500, 500);
-            int z = Random.Range(-500, 500);
+            int x = Random.Range(-500, 500) + (int)transform.position.x;
+            int z = Random.Range(-500, 500) + (int)transform.position.z;
             
             Instantiate(racks[i%racks.Count], new Vector3(x, 3, z),
                 Quaternion.Euler(Random.Range(0.0f, 360.0f), Random.Range(0.0f, 360.0f), Random.Range(0.0f, 360.0f)));
