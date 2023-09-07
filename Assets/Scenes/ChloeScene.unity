@@ -228,6 +228,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1928642235}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &662852685 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 415947073410111580, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
+  m_PrefabInstance: {fileID: 1370967114}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &844694547 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5513603745033372351, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
@@ -538,6 +543,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GExplosion
       objectReference: {fileID: 0}
+    - target: {fileID: 1871192130819465607, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2594847741165273402, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
+      propertyPath: _pointerGauge
+      value: 
+      objectReference: {fileID: 662852685}
     - target: {fileID: 2594847741165273402, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
       propertyPath: _maxGaugeValue
       value: 3
@@ -676,7 +689,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8116947315586458986, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2045599991, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
