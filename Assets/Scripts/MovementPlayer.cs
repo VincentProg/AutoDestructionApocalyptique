@@ -62,8 +62,8 @@ public class MovementPlayer : MonoBehaviour
         float valueClamped = direction * _speedRotation * Time.fixedDeltaTime + _rigidbody.rotation.eulerAngles.y;
         if (direction < 0f)
         {
-            if ((IsZeroBetweenTwoValues(leftAngle.eulerAngles.y, rightAngle.eulerAngles.y) && valueClamped < leftAngle.eulerAngles.y && valueClamped > rightAngle.eulerAngles.y) ||
-                    (!IsZeroBetweenTwoValues(leftAngle.eulerAngles.y, rightAngle.eulerAngles.y) && valueClamped < leftAngle.eulerAngles.y))
+            bool checkIfZero = IsZeroBetweenTwoValues(leftAngle.eulerAngles.y, rightAngle.eulerAngles.y);
+            if (valueClamped < leftAngle.eulerAngles.y && ((checkIfZero && valueClamped > rightAngle.eulerAngles.y) || !checkIfZero))
             {
                 valueClamped = leftAngle.eulerAngles.y;
             }
@@ -71,8 +71,8 @@ public class MovementPlayer : MonoBehaviour
 
         if (direction > 0f)
         {
-            if ((IsZeroBetweenTwoValues(leftAngle.eulerAngles.y, rightAngle.eulerAngles.y) && valueClamped > rightAngle.eulerAngles.y && valueClamped < leftAngle.eulerAngles.y) ||
-            (!IsZeroBetweenTwoValues(leftAngle.eulerAngles.y, rightAngle.eulerAngles.y) && valueClamped > rightAngle.eulerAngles.y))
+            bool checkIfZero = IsZeroBetweenTwoValues(leftAngle.eulerAngles.y, rightAngle.eulerAngles.y);
+            if (valueClamped > rightAngle.eulerAngles.y && ((checkIfZero && valueClamped < leftAngle.eulerAngles.y) || !checkIfZero))
 
             {
                 valueClamped = rightAngle.eulerAngles.y;
