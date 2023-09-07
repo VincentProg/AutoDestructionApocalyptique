@@ -15,7 +15,7 @@ public class MovementPlayer : MonoBehaviour
     bool _hasLoadedSpeedBoost = false;
     bool _isSpeedBoostActive = false;
     bool _isAtHighSpeed = true;
-    bool _isStopped = false;
+    [SerializeField]bool _isStopped = false;
 
     [SerializeField] Rigidbody _rigidbody;
     Coroutine _routineBoost;
