@@ -10,26 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
-  m_Name: InputsKeyboard
+  m_Name: InputsMachine
   m_EditorClassIdentifier: Assembly-CSharp::ListInputs
   _listPairInputs:
   - _input: 1
-    _keyCode: 116
-  - _input: 2
-    _keyCode: 103
-  - _input: 3
-    _keyCode: 121
-  - _input: 4
-    _keyCode: 104
-  - _input: 5
-    _keyCode: 117
-  - _input: 6
     _keyCode: 106
-  - _input: 8
-    _keyCode: 105
-  - _input: 7
-    _keyCode: 107
-  - _input: 9
-    _keyCode: 111
-  - _input: 10
+  - _input: 2
+    _keyCode: 118
+  - _input: 3
     _keyCode: 108
+  - _input: 4
+    _keyCode: 54
+  - _input: 5
+    _keyCode: 113
+  - _input: 6
+    _keyCode: 115
+  - _input: 8
+    _keyCode: 114
+  - _input: 7
+    _keyCode: 102
+  - _input: 9
+    _keyCode: 103
+  - _input: 10
+    _keyCode: 100
