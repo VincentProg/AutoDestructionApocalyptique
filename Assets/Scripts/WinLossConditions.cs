@@ -1,10 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class WinLossConditions : MonoBehaviour
 {
-    [SerializeField] ExplosivityGauge _explosityGauge;
+    [SerializeField] ExplosionGauge _explosityGauge;
+
+    public event Action<bool> OnWinFridge;
+    public event Action<bool> OnWinForklift;
+    private bool _gameEnded = false;
+    
 
     private void Start()
     {
@@ -13,9 +17,10 @@ public class WinLossConditions : MonoBehaviour
 
     private void OnGaugeValueChanged(float gaugeValue)
     {
-        if (_explosityGauge.IsGaugeFull())
+        if (_explosityGauge.IsGaugeFull() && !_gameEnded)
         {
-            Debug.Log("LOSE");
+            _gameEnded = true;
+            OnWinFridge?.Invoke(true); // True : fridge has won
         }
     }
 }

@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class CubesInstancierTest : MonoBehaviour
+public class RacksInstancierTest : MonoBehaviour
 {
-    [SerializeField] private Transform cube;
+    [SerializeField] private List<Transform> racks;
     [SerializeField] private int nbrCubes;
 
     private void Start()
@@ -15,7 +15,8 @@ public class CubesInstancierTest : MonoBehaviour
         {
             int x = Random.Range(-500, 500);
             int z = Random.Range(-500, 500);
-            Instantiate(cube, new Vector3(x, 3, z),
+            
+            Instantiate(racks[i%racks.Count], new Vector3(x, 3, z),
                 Quaternion.Euler(Random.Range(0.0f, 360.0f), Random.Range(0.0f, 360.0f), Random.Range(0.0f, 360.0f)));
         }
     }

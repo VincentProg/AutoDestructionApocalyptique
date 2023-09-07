@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -14,28 +15,76 @@ public class MovementPlayer : MonoBehaviour
     bool _hasLoadedSpeedBoost = false;
     bool _isSpeedBoostActive = false;
     bool _isAtHighSpeed = true;
+    bool _isStopped = false;
 
     [SerializeField] Rigidbody _rigidbody;
     Coroutine _routineBoost;
+    [SerializeField] WinLossConditions _winLossConditions;
+    [SerializeField] Camera _camera;
+    [SerializeField,Range(0f, 180f)] float _angleRotationMax = 45f;
 
     private void Awake()
     {
         _currentSpeed = _highSpeed;    
     }
+    private void Start()
+    {
+        _winLossConditions.OnWinForklift += OnWin;
+        _winLossConditions.OnWinFridge += OnWin;
+    }
 
     private void Update()
     {
-        CheckBoost();
-        ApplyBoost();
-        ChangeSpeed();
-        RotateCar();
-        MoveCar();
+        if (!_isStopped)
+        {
+            CheckBoost();
+            ApplyBoost();
+            ChangeSpeed();
+        }
+    }
+    
+    private void FixedUpdate()
+    {
+        if (!_isStopped)
+        {
+            RotateCar();
+            MoveCar();
+        }
     }
 
     void RotateCar()
     {
         float direction = InputManager.Instance.GetWheelValue();
-        _rigidbody.rotation = Quaternion.Euler(_rigidbody.rotation.eulerAngles.x, direction * (_speedRotation / 90) + _rigidbody.rotation.eulerAngles.y, _rigidbody.rotation.eulerAngles.z); 
+
+        Quaternion rightAngle = Quaternion.LookRotation(Quaternion.Euler(0f, _angleRotationMax, 0f) * _camera.transform.forward);
+        Quaternion leftAngle = Quaternion.LookRotation(Quaternion.Euler(0f, -_angleRotationMax, 0f) * _camera.transform.forward);
+        
+        float valueClamped = direction * _speedRotation * Time.fixedDeltaTime + _rigidbody.rotation.eulerAngles.y;
+        if (direction < 0f)
+        {
+            bool checkIfZero = IsZeroBetweenTwoValues(leftAngle.eulerAngles.y, rightAngle.eulerAngles.y);
+            if (valueClamped < leftAngle.eulerAngles.y && ((checkIfZero && valueClamped > rightAngle.eulerAngles.y) || !checkIfZero))
+            {
+                valueClamped = leftAngle.eulerAngles.y;
+            }
+        }
+
+        if (direction > 0f)
+        {
+            bool checkIfZero = IsZeroBetweenTwoValues(leftAngle.eulerAngles.y, rightAngle.eulerAngles.y);
+            if (valueClamped > rightAngle.eulerAngles.y && ((checkIfZero && valueClamped < leftAngle.eulerAngles.y) || !checkIfZero))
+
+            {
+                valueClamped = rightAngle.eulerAngles.y;
+            }
+        }
+        Quaternion rotation = Quaternion.Euler(_rigidbody.rotation.eulerAngles.x, valueClamped, _rigidbody.rotation.eulerAngles.z);
+        _rigidbody.rotation = rotation; 
+    }
+
+    bool IsZeroBetweenTwoValues(float angleLeft,float angleRight)
+    {
+        return (angleLeft - 180) > 0f && (angleRight - 180) < 0f;
     }
 
     void MoveCar()
@@ -43,7 +92,7 @@ public class MovementPlayer : MonoBehaviour
 
         if (CheckIfOnGround())
         {
-            _rigidbody.velocity = _currentSpeed * transform.forward;
+            _rigidbody.velocity = _currentSpeed * Time.fixedDeltaTime * transform.forward;
         }
     }
 
@@ -56,6 +105,11 @@ public class MovementPlayer : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, transform.position - transform.up * _groundDistance);
+        Gizmos.color = Color.blue;
+
+        float lengthLines = 10;
+        Gizmos.DrawLine(transform.position, transform.position + Quaternion.Euler(0f, _angleRotationMax, 0f) * _camera.transform.forward * lengthLines);
+        Gizmos.DrawLine(transform.position, transform.position + Quaternion.Euler(0f, - _angleRotationMax, 0f) * _camera.transform.forward * lengthLines);
     }
 
     void ChangeSpeed()
@@ -119,5 +173,11 @@ public class MovementPlayer : MonoBehaviour
         yield return new WaitForSeconds(_boostDuration);
         _currentSpeed = GetSpeedWithoutBoost();
         _isSpeedBoostActive = false;
+    }
+
+    void OnWin(bool fridgeWon)
+    {
+        _isStopped = true;
+        _rigidbody.velocity = Vector3.zero;
     }
 }
