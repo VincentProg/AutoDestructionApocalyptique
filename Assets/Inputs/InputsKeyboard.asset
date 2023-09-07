@@ -31,5 +31,5 @@ MonoBehaviour:
     _keyCode: 107
   - _input: 9
     _keyCode: 111
-  - _input: 7
+  - _input: 10
     _keyCode: 108
