@@ -422,7 +422,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Path: {fileID: 1722342901415322408}
   m_PathPosition: 0.028133625
-  m_PositionUnits: 0
+  m_PositionUnits: 2
   m_PathOffset: {x: 0, y: -7.27, z: -20.58}
   m_XDamping: 0
   m_YDamping: 0
@@ -949,6 +949,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6236046236342833060, guid: 99aa9608fa189ce4aa6d9b02b356e6af, type: 3}
+      propertyPath: _virtualCamera
+      value: 
+      objectReference: {fileID: 5513603745532069180}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
