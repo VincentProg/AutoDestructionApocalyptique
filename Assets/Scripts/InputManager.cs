@@ -17,13 +17,6 @@ public enum MachineInput
     ButtonBlack
 }
 
-[CreateAssetMenu(fileName = "Inputs", menuName = "AutoDestructionInputs/Add inputs")]
-public class ListInputs : ScriptableObject
-{
-    [SerializeField] List<PairInputs> _listPairInputs;
-
-    public List<PairInputs> ListPairInputs { get => _listPairInputs; }
-}
 [Serializable]
 public class PairInputs {
     [SerializeField] MachineInput _input;

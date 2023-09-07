@@ -580,7 +580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3775a10e4f1c1b45b276dfcfb0146b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _listInputs: {fileID: 11400000, guid: d81339411517cc2458c39bebad9a0c98, type: 2}
+  _listInputs: {fileID: 11400000, guid: 0e689da3125af7b469753b9b1a721342, type: 2}
   _sensibility: 0.5
 --- !u!1 &6850313155546248098
 GameObject:
