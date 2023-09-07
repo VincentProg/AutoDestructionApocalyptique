@@ -5995,6 +5995,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1679372583, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
+      propertyPath: _sideForce
+      value: 35
+      objectReference: {fileID: 0}
     - target: {fileID: 1086718955258123027, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.5953217
@@ -6183,6 +6187,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 4109747738506210845, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5513603743876565325, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
+      propertyPath: m_ShowCameraFrustum
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5513603743876565328, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
       propertyPath: m_LocalPosition.x
       value: -24.983156
@@ -6213,23 +6225,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5513603743876565331, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
       propertyPath: field of view
-      value: 80
+      value: 77
+      objectReference: {fileID: 0}
+    - target: {fileID: 5513603743876565331, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
+      propertyPath: m_FOVAxisMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5513603743876565331, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
+      propertyPath: m_projectionMatrixMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5513603744780879566, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
       propertyPath: _lowSpeed
-      value: 2000
+      value: 1500
       objectReference: {fileID: 0}
     - target: {fileID: 5513603744780879566, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
       propertyPath: _highSpeed
-      value: 6000
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 5513603744780879566, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
       propertyPath: _boostSpeed
-      value: 8000
+      value: 4000
       objectReference: {fileID: 0}
     - target: {fileID: 5513603744780879567, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
       propertyPath: m_LinearLimit.limit
-      value: 15
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5513603745532069180, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
+      propertyPath: m_Lens.FieldOfView
+      value: 77
       objectReference: {fileID: 0}
     - target: {fileID: 5513603745532069181, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6243,6 +6267,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 17.544348
       objectReference: {fileID: 0}
+    - target: {fileID: 5513603745722631091, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 0d0ed90ddc8222c48a31976dcf8cd7c5, type: 2}
     - target: {fileID: 6850313155546248098, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
       propertyPath: m_Name
       value: GameplayMandatory
