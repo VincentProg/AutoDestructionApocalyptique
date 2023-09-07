@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8726842247178650260}
   - component: {fileID: 1044797560042426308}
   - component: {fileID: 4299274150055453251}
+  - component: {fileID: 2786081053929541296}
   m_Layer: 0
   m_Name: modular_industrial_pipes_01_pipe05
   m_TagString: Untagged
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2786081053929541296
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3447134081223021193}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.005, y: 0.002, z: 0.004}
+  m_Center: {x: 0, y: 0, z: 0}
