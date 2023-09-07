@@ -581,6 +581,8 @@ MonoBehaviour:
   _explosivityGauge: {fileID: 7531849407118826047}
   _damagePerImpact: 1
   _cooldownImpact: 1
+  _fridgeRb: {fileID: 1734596794}
+  _strengthImpact: 10
 --- !u!114 &5513603745779640866
 MonoBehaviour:
   m_ObjectHideFlags: 0

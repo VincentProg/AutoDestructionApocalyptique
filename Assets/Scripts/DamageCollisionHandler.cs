@@ -7,6 +7,9 @@ public class DamageCollisionHandler : MonoBehaviour
     [SerializeField] ExplosionGauge _explosivityGauge;
     [SerializeField] int _damagePerImpact = 1;
     [SerializeField] float _cooldownImpact = 3f;
+
+    [SerializeField] private Rigidbody _fridgeRb;
+    [SerializeField] private float _strengthImpact;
     
 
     private void OnCollisionEnter(Collision collision)
@@ -15,6 +18,16 @@ public class DamageCollisionHandler : MonoBehaviour
         {
             StartCoroutine(CoroutineCoolDown());
             _explosivityGauge.TakeDamage(_damagePerImpact);
+        }
+
+        Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
+        if (rb)
+        {
+            Vector3 pos = transform.position;
+            Vector3 colPos = collision.transform.position;
+            Vector3 dir = (pos - colPos).normalized + new Vector3(0,1,0);
+            
+            rb.AddForce(dir * (_fridgeRb.velocity.magnitude *_strengthImpact), ForceMode.Impulse);
         }
     }
 
