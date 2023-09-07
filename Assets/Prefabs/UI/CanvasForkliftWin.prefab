@@ -395,7 +395,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7108992008751310657
 RectTransform:
   m_ObjectHideFlags: 0
@@ -841,5 +841,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _restartButton: {fileID: 3969240704663972720}
   _menuButton: {fileID: 1060701002975434245}
+  _conditions: {fileID: 0}
   _menuObject: {fileID: 4121303170750736655}
   _isWinFridgeMenu: 0

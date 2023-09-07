@@ -11,6 +11,8 @@ public class FridgeMouvements : MonoBehaviour
     private bool _canJump;
     [SerializeField] private float _jumpForce;
     [SerializeField] private float _sideForce;
+    
+    [SerializeField] private PhysicMaterial _physicMat;
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -32,6 +34,8 @@ public class FridgeMouvements : MonoBehaviour
         {
             AddSideForce(true);
         }
+        
+        SetFriction();
     }
 
     private void Jump()
@@ -51,6 +55,17 @@ public class FridgeMouvements : MonoBehaviour
         }
         
         _rb.AddForce(vec * (_sideForce), ForceMode.Acceleration);
+    }
+    
+    private void SetFriction()
+    {
+        if(Input.GetKeyDown(InputManager.Instance.GetKeyCodeFromInput(MachineInput.ButtonDown)))
+        {
+            _physicMat.dynamicFriction = 0;
+        } else if(Input.GetKeyUp(InputManager.Instance.GetKeyCodeFromInput(MachineInput.ButtonDown)))
+        {
+            _physicMat.dynamicFriction = 3;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
