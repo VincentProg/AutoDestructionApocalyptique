@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,7 +13,6 @@ public class ExplosionGauge : MonoBehaviour
 
     public event Action<float> OnValueChanged;
     public bool IsInvincible { get => _isInvincible; set => _isInvincible = value; }
-
     public void TakeDamage(float damage)
     {
         SetGaugeValue(_gaugeValue + damage);

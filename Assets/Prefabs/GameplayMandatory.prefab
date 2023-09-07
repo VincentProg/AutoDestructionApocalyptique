@@ -831,6 +831,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4121303170750736655, guid: 865e489b0fa073f4a9ee8419b2030d3a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8142082609134738996, guid: 865e489b0fa073f4a9ee8419b2030d3a, type: 3}
       propertyPath: m_Name
       value: CanvasForkliftWin
@@ -958,17 +962,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99aa9608fa189ce4aa6d9b02b356e6af, type: 3}
---- !u!114 &5682390984733684795 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 533000248218782883, guid: 99aa9608fa189ce4aa6d9b02b356e6af, type: 3}
+--- !u!224 &415947073410111580 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5511224177078657220, guid: 99aa9608fa189ce4aa6d9b02b356e6af, type: 3}
   m_PrefabInstance: {fileID: 5313808411361048728}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &5862836261475196902 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1793147457969481598, guid: 99aa9608fa189ce4aa6d9b02b356e6af, type: 3}
@@ -991,9 +989,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4495013242441111784}
     - target: {fileID: 7531849407118826047, guid: 82d0132fbdf52f64694a32d664c1b03a, type: 3}
-      propertyPath: _slider
+      propertyPath: _pointerGauge
       value: 
-      objectReference: {fileID: 5682390984733684795}
+      objectReference: {fileID: 415947073410111580}
     - target: {fileID: 8470286491125085464, guid: 82d0132fbdf52f64694a32d664c1b03a, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -1076,9 +1074,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1086718955258123027}
     m_Modifications:
+    - target: {fileID: 6135059086860705609, guid: b70828b57d1a95c4eafd9ebdf37765d3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6135059088680672746, guid: b70828b57d1a95c4eafd9ebdf37765d3, type: 3}
       propertyPath: m_Name
       value: CanvasPause
+      objectReference: {fileID: 0}
+    - target: {fileID: 6135059088680672746, guid: b70828b57d1a95c4eafd9ebdf37765d3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6135059088680672751, guid: b70828b57d1a95c4eafd9ebdf37765d3, type: 3}
       propertyPath: m_Pivot.x
@@ -1189,6 +1195,10 @@ PrefabInstance:
     - target: {fileID: 1906780214601986196, guid: b337609a9764e114bae63d0a2e8dbc3d, type: 3}
       propertyPath: m_Name
       value: CanvasFridgeWin
+      objectReference: {fileID: 0}
+    - target: {fileID: 4233338455225697886, guid: b337609a9764e114bae63d0a2e8dbc3d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8132776765289852609, guid: b337609a9764e114bae63d0a2e8dbc3d, type: 3}
       propertyPath: m_Pivot.x
