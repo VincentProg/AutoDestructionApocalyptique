@@ -13,11 +13,4 @@ public class FinishLine : MonoBehaviour
     {
         OnFinishLineAchieved?.Invoke();
     }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Vector3 size = new Vector3(_boxCollider.size.x * transform.localScale.x, _boxCollider.size.y * transform.localScale.y, _boxCollider.size.z * transform.localScale.z);
-        Gizmos.DrawWireCube(transform.position + _boxCollider.center, size);
-    }
 }
