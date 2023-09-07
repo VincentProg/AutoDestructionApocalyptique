@@ -1,29 +1,83 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Inputs", menuName = "AutoDestructionInputs/Add inputs")]
-public class InputManager : ScriptableObject
+public enum MachineInput
 {
-    [SerializeField] KeyCode _keyCodeLeverLeftUp;
-    [SerializeField] KeyCode _keyCodeLeverLeftDown;
-    [SerializeField] KeyCode _keyCodeLeverRightUp;
-    [SerializeField] KeyCode _keyCodeLeverRightDown;
-    [SerializeField] KeyCode _keyCodeUp;
-    [SerializeField] KeyCode _keyCodeLeft;
-    [SerializeField] KeyCode _keyCodeRight;
-    [SerializeField] KeyCode _keyCodeDown;
-    [SerializeField] KeyCode _keyCodeWhiteButton;
-    [SerializeField] KeyCode _keyCodeBlackButton;
+    Wheel,
+    LeverLeftUp,
+    LeverLeftDown,
+    LeverRightUp,
+    LeverRightDown,
+    ButtonUp,
+    ButtonDown,
+    ButtonLeft,
+    ButtonRight,
+    ButtonWhite,
+    ButtonBlack
+}
 
-    #region getters
-    public KeyCode KeyCodeLeverLeftUp { get => _keyCodeLeverLeftUp;}
-    public KeyCode KeyCodeLeverRightUp { get => _keyCodeLeverRightUp;}
-    public KeyCode KeyCodeLeverLeftDown { get => _keyCodeLeverLeftDown; }
-    public KeyCode KeyCodeLeverRightDown { get => _keyCodeLeverRightDown; }
-    public KeyCode KeyCodeUp { get => _keyCodeUp;}
-    public KeyCode KeyCodeLeft { get => _keyCodeLeft;}
-    public KeyCode KeyCodeRight { get => _keyCodeRight;}
-    public KeyCode KeyCodeDown { get => _keyCodeDown; }
-    public KeyCode KeyCodeWhiteButton { get => _keyCodeWhiteButton; }
-    public KeyCode KeyCodeBlackButton { get => _keyCodeBlackButton; }
-    #endregion
+[CreateAssetMenu(fileName = "Inputs", menuName = "AutoDestructionInputs/Add inputs")]
+public class ListInputs : ScriptableObject
+{
+    [SerializeField] List<PairInputs> _listPairInputs;
+
+    public List<PairInputs> ListPairInputs { get => _listPairInputs; }
+}
+[Serializable]
+public class PairInputs {
+    [SerializeField] MachineInput _input;
+    [SerializeField] KeyCode _keyCode;
+
+    public KeyCode KeyCode { get => _keyCode;}
+    public MachineInput Input { get => _input;}
+}
+
+
+public class InputManager : MonoBehaviour
+{
+
+    private static InputManager _instance;
+
+    [SerializeField] ListInputs _listInputs;
+    public static InputManager Instance { get => _instance; }
+    private float _lastMousePositionX;
+    [SerializeField] private float _sensibility = 1f;
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        } else
+        {
+            _instance = this;
+        }
+    }
+
+    public KeyCode GetKeyCodeFromInput(MachineInput input)
+    {
+        bool found = false;
+        KeyCode keyCode = KeyCode.None;
+        int i = 0;
+        while(!found && i < _listInputs.ListPairInputs.Count)
+        {
+            if (_listInputs.ListPairInputs[i].Input == input)
+            {
+                found = true;
+                keyCode = _listInputs.ListPairInputs[i].KeyCode;
+            }
+            ++i;
+        }
+        return keyCode;
+    }
+    public float GetWheelValue()
+    {
+        Vector2 currentMousePositionX = Input.mousePosition;
+
+        float mouseDelta = currentMousePositionX.x - _lastMousePositionX;
+
+        _lastMousePositionX = currentMousePositionX.x;
+        return mouseDelta * _sensibility;
+    } 
 }
