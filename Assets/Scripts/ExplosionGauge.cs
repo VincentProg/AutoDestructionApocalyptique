@@ -21,7 +21,10 @@ public class ExplosionGauge : MonoBehaviour
     void SetGaugeValue(float value)
     {
         _gaugeValue = Mathf.Clamp(value, 0f, _maxGaugeValue);
-        _slider.value = _gaugeValue /_maxGaugeValue;
+        if (_slider != null)
+        {
+            _slider.value = _gaugeValue /_maxGaugeValue;
+        }
         OnValueChanged?.Invoke(_gaugeValue);
     }
 
