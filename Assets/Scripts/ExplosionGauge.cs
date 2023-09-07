@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ExplosivityGauge : MonoBehaviour
+public class ExplosionGauge : MonoBehaviour
 {
     [SerializeField] float _maxGaugeValue = 15f;
     [SerializeField] Slider _slider;
