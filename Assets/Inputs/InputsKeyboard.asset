@@ -22,9 +22,9 @@ MonoBehaviour:
   - _input: 4
     _keyCode: 104
   - _input: 5
-    _keyCode: 32
+    _keyCode: 113
   - _input: 6
-    _keyCode: 106
+    _keyCode: 115
   - _input: 8
     _keyCode: 105
   - _input: 7
@@ -32,4 +32,4 @@ MonoBehaviour:
   - _input: 9
     _keyCode: 111
   - _input: 7
-    _keyCode: 108
+    _keyCode: 102
