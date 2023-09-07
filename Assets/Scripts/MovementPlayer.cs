@@ -20,6 +20,8 @@ public class MovementPlayer : MonoBehaviour
     [SerializeField] Rigidbody _rigidbody;
     Coroutine _routineBoost;
     [SerializeField] WinLossConditions _winLossConditions;
+    [SerializeField] Camera _camera;
+    [SerializeField,Range(0f, 180f)] float _angleRotationMax = 45f;
 
     private void Awake()
     {
@@ -53,7 +55,22 @@ public class MovementPlayer : MonoBehaviour
     void RotateCar()
     {
         float direction = InputManager.Instance.GetWheelValue();
-        _rigidbody.rotation = Quaternion.Euler(_rigidbody.rotation.eulerAngles.x, direction * _speedRotation * Time.fixedDeltaTime + _rigidbody.rotation.eulerAngles.y, _rigidbody.rotation.eulerAngles.z); 
+
+        
+        Quaternion maxAngle = Quaternion.LookRotation(Quaternion.Euler(0f, _angleRotationMax, 0f) * _camera.transform.forward);
+        Quaternion minAngle = Quaternion.LookRotation(Quaternion.Euler(0f, - _angleRotationMax, 0f) * _camera.transform.forward);
+        
+        float valueClamped = direction * _speedRotation * Time.fixedDeltaTime + _rigidbody.rotation.eulerAngles.y;
+        if (valueClamped < minAngle.eulerAngles.y && valueClamped > 180f)
+        {
+            valueClamped = minAngle.eulerAngles.y;
+        }
+        if (valueClamped > maxAngle.eulerAngles.y && valueClamped < 180f)
+        {
+            valueClamped = maxAngle.eulerAngles.y;
+        }
+        Quaternion rotation = Quaternion.Euler(_rigidbody.rotation.eulerAngles.x, valueClamped, _rigidbody.rotation.eulerAngles.z);
+        _rigidbody.rotation = rotation; 
     }
 
     void MoveCar()
@@ -74,6 +91,11 @@ public class MovementPlayer : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, transform.position - transform.up * _groundDistance);
+        Gizmos.color = Color.blue;
+
+        float lengthLines = 10;
+        Gizmos.DrawLine(transform.position, transform.position + Quaternion.Euler(0f, _angleRotationMax, 0f) * _camera.transform.forward * lengthLines);
+        Gizmos.DrawLine(transform.position, transform.position + Quaternion.Euler(0f, - _angleRotationMax, 0f) * _camera.transform.forward * lengthLines);
     }
 
     void ChangeSpeed()
