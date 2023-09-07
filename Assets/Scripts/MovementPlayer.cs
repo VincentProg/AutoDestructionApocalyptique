@@ -93,7 +93,7 @@ public class MovementPlayer : MonoBehaviour
 
         if (CheckIfOnGround())
         {
-            _rigidbody.velocity = _speed * Time.fixedDeltaTime * transform.forward;
+            _rigidbody.velocity = _currentSpeed * Time.fixedDeltaTime * transform.forward;
         }
     }
 
