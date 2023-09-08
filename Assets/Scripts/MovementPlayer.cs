@@ -33,6 +33,8 @@ public class MovementPlayer : MonoBehaviour
     [SerializeField] private float _boostPitch;
     private float _initialPitch;
 
+    [SerializeField] private ParticleSystem _particlesBoost;
+
     private void Awake()
     {
         _initialPitch = _motorSource.pitch;
@@ -196,7 +198,9 @@ public class MovementPlayer : MonoBehaviour
         _isSpeedBoostActive = true;
         _currentSpeed = _boostSpeed;
         _motorSource.pitch = _boostPitch;
+        _particlesBoost.Play();
         yield return new WaitForSeconds(_boostDuration);
+        _particlesBoost.Stop();
         _motorSource.pitch = _initialPitch;
         _currentSpeed = GetSpeedWithoutBoost();
         _isSpeedBoostActive = false;

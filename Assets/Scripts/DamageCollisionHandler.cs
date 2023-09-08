@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -16,6 +17,8 @@ public class DamageCollisionHandler : MonoBehaviour
     [SerializeField]
     private List<AudioSource> _audios;
 
+    [SerializeField] private GameObject _particleExplose;
+
     private void Start()
     {
         foreach (AudioSource source in _audios)
@@ -30,13 +33,15 @@ public class DamageCollisionHandler : MonoBehaviour
             return;
         
         int rand = Random.Range(0, _audios.Count);
+        GameObject particle = Instantiate(_particleExplose, collision.contacts[0].point, Quaternion.identity);
+        Destroy(particle, 1);
         _audios[rand].Play();
         
         if (collision.gameObject.tag == "Obstacle" && !_explosivityGauge.IsInvincible)
         {
             StartCoroutine(CoroutineCoolDown());
             _explosivityGauge.TakeDamage(_damagePerImpact);
-            
+
             Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
             if (rb)
             {
