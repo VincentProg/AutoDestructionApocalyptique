@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FridgeMouvements : MonoBehaviour
@@ -13,29 +10,54 @@ public class FridgeMouvements : MonoBehaviour
     [SerializeField] private float _sideForce;
     
     [SerializeField] private PhysicMaterial _physicMat;
+    [SerializeField] private WinLossConditions _winLossConditions;
+    [SerializeField] private StartingNumbers _startingNumbers;
+    bool _isStopped = true;
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        if (_winLossConditions != null)
+        {
+            _winLossConditions.OnWinForklift += OnWin;
+            _winLossConditions.OnWinFridge += OnWin;
+        }
+        if (_startingNumbers != null)
+        {
+            _startingNumbers.OnStartingEnded += OnCircuitStarted;
+        }
+    }
+
+    private void OnCircuitStarted()
+    {
+        _isStopped = false;
+    }
+
+    void OnWin(bool fridgeWon)
+    {
+        _isStopped = true;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(InputManager.Instance.GetKeyCodeFromInput(MachineInput.ButtonUp)))
+        if (!_isStopped)
         {
-            Jump();
-        }
+            if (Input.GetKeyDown(InputManager.Instance.GetKeyCodeFromInput(MachineInput.ButtonUp)))
+            {
+                Jump();
+            }
 
-        if (Input.GetKey(InputManager.Instance.GetKeyCodeFromInput(MachineInput.ButtonLeft)))
-        {
-            AddSideForce(false);
-        }
+            if (Input.GetKey(InputManager.Instance.GetKeyCodeFromInput(MachineInput.ButtonLeft)))
+            {
+                AddSideForce(false);
+            }
 
-        if (Input.GetKey(InputManager.Instance.GetKeyCodeFromInput(MachineInput.ButtonRight)))
-        {
-            AddSideForce(true);
-        }
+            if (Input.GetKey(InputManager.Instance.GetKeyCodeFromInput(MachineInput.ButtonRight)))
+            {
+                AddSideForce(true);
+            }
         
-        SetFriction();
+            SetFriction();
+        }
     }
 
     private void Jump()
