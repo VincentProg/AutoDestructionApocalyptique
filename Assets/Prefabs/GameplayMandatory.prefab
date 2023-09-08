@@ -984,6 +984,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5511224177078657220, guid: 99aa9608fa189ce4aa6d9b02b356e6af, type: 3}
   m_PrefabInstance: {fileID: 5313808411361048728}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2872296964038621545 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7953922392858558961, guid: 99aa9608fa189ce4aa6d9b02b356e6af, type: 3}
+  m_PrefabInstance: {fileID: 5313808411361048728}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 783af5a8020e3c940a78fee7ecb91c5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &5862836261475196902 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1793147457969481598, guid: 99aa9608fa189ce4aa6d9b02b356e6af, type: 3}
@@ -1001,6 +1012,10 @@ PrefabInstance:
       propertyPath: _camera
       value: 
       objectReference: {fileID: 5513603743876565331}
+    - target: {fileID: 545381835, guid: 82d0132fbdf52f64694a32d664c1b03a, type: 3}
+      propertyPath: _startingNumbers
+      value: 
+      objectReference: {fileID: 2872296964038621545}
     - target: {fileID: 545381835, guid: 82d0132fbdf52f64694a32d664c1b03a, type: 3}
       propertyPath: _winLossConditions
       value: 
