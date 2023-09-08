@@ -1020,22 +1020,10 @@ PrefabInstance:
       propertyPath: _winLossConditions
       value: 
       objectReference: {fileID: 4495013242441111784}
-    - target: {fileID: 5513603745779640866, guid: 82d0132fbdf52f64694a32d664c1b03a, type: 3}
-      propertyPath: _startingNumbers
-      value: 
-      objectReference: {fileID: 2872296964038621545}
-    - target: {fileID: 5513603745779640866, guid: 82d0132fbdf52f64694a32d664c1b03a, type: 3}
-      propertyPath: _winLossConditions
-      value: 
-      objectReference: {fileID: 4495013242441111784}
     - target: {fileID: 7531849407118826047, guid: 82d0132fbdf52f64694a32d664c1b03a, type: 3}
       propertyPath: _pointerGauge
       value: 
       objectReference: {fileID: 415947073410111580}
-    - target: {fileID: 7531849407118826047, guid: 82d0132fbdf52f64694a32d664c1b03a, type: 3}
-      propertyPath: _startingNumbers
-      value: 
-      objectReference: {fileID: 2872296964038621545}
     - target: {fileID: 8470286491125085464, guid: 82d0132fbdf52f64694a32d664c1b03a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11

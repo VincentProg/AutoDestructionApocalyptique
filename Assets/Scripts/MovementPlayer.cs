@@ -10,6 +10,8 @@ public class MovementPlayer : MonoBehaviour
     [SerializeField] float _lowSpeed = 10f;
     [SerializeField] float _highSpeed = 5f;
     float _currentSpeed;
+    float _speed;
+    [SerializeField] float _timeToTransitionSpeed = 0.5f;
     [SerializeField] float _groundDistance = 0.1f;
     [SerializeField] float _loadingBoostDuration = 1f;
     [SerializeField] float _boostDuration = 2f;
@@ -37,6 +39,7 @@ public class MovementPlayer : MonoBehaviour
     {
         _initialPitch = _motorSource.pitch;
         _currentSpeed = 0f;
+        _speed = 0f;
     }
     private void Start()
     {
@@ -62,6 +65,7 @@ public class MovementPlayer : MonoBehaviour
             ApplyBoost();
             ChangeSpeed();
         }
+        UpdateSpeed();
     }
     
     private void FixedUpdate()
@@ -208,4 +212,11 @@ public class MovementPlayer : MonoBehaviour
         _rigidbody.velocity = Vector3.zero;
     }
 
+    void UpdateSpeed()
+    {
+        /*if (_speed != _currentSpeed)
+        {
+            //_speed = Mathf.Lerp(_speed, _currentSpeed, Time.deltaTime * Mathf.Abs(_currentSpeed - _speed));
+        }*/
+    }
 }
