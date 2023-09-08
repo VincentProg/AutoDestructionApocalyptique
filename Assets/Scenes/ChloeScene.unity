@@ -570,30 +570,6 @@ PrefabInstance:
       propertyPath: _speedPointerRotation
       value: 50
       objectReference: {fileID: 0}
-    - target: {fileID: 2872296964038621545, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
-      propertyPath: _durationBetweenText
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2872296964038621545, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
-      propertyPath: _textsToShow.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2872296964038621545, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
-      propertyPath: _textsToShow.Array.data[0]
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2872296964038621545, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
-      propertyPath: _textsToShow.Array.data[1]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2872296964038621545, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
-      propertyPath: _textsToShow.Array.data[2]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2872296964038621545, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
-      propertyPath: _textsToShow.Array.data[3]
-      value: GO !
-      objectReference: {fileID: 0}
     - target: {fileID: 3122122303256082851, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
       propertyPath: m_LocalScale.x
       value: 87.1
@@ -749,14 +725,6 @@ PrefabInstance:
     - target: {fileID: 6850313155546248098, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
       propertyPath: m_Name
       value: GameplayMandatory
-      objectReference: {fileID: 0}
-    - target: {fileID: 7936462035073584420, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 7936462035073584420, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8116947315586458986, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
       propertyPath: m_AnchorMax.y
