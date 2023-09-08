@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MovementPlayer : MonoBehaviour
@@ -23,6 +24,9 @@ public class MovementPlayer : MonoBehaviour
     [SerializeField] WinLossConditions _winLossConditions;
     [SerializeField] Camera _camera;
     [SerializeField,Range(0f, 180f)] float _angleRotationMax = 45f;
+
+    [SerializeField]
+    private List<Transform> _wheels;
 
     private void Awake()
     {
@@ -94,6 +98,11 @@ public class MovementPlayer : MonoBehaviour
         if (CheckIfOnGround())
         {
             _rigidbody.velocity = _currentSpeed * Time.fixedDeltaTime * transform.forward;
+        }
+
+        foreach (Transform wheel in _wheels)
+        {
+            wheel.transform.Rotate(new Vector3(0,0,1), _rigidbody.velocity.magnitude);
         }
     }
 
