@@ -462,18 +462,30 @@ PrefabInstance:
       propertyPath: m_AutoDolly.m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 415947073410111580, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
-      objectReference: {fileID: 0}
     - target: {fileID: 514963921153213827, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
       propertyPath: m_Navigation.m_Mode
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 649038367521458172, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
+    - target: {fileID: 766933148953385785, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 766933149090504588, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 766933149090504588, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 60dc9e6a2464f7745990e601cdb44190, type: 3}
+    - target: {fileID: 766933149218202342, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 766933149218202342, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 60dc9e6a2464f7745990e601cdb44190, type: 3}
     - target: {fileID: 1086718955258123027, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -625,10 +637,6 @@ PrefabInstance:
     - target: {fileID: 4669787991280070855, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5145332009419031649, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5513603743876565328, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
       propertyPath: m_LocalPosition.x
