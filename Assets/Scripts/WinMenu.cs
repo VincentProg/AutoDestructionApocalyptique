@@ -44,6 +44,6 @@ public class WinMenu : MonoBehaviour
 
     void ReturnToMenu()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene(0);
     }
 }
