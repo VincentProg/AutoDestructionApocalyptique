@@ -462,10 +462,6 @@ PrefabInstance:
       propertyPath: m_AutoDolly.m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 415947073410111580, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
-      objectReference: {fileID: 0}
     - target: {fileID: 514963921153213827, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
       propertyPath: m_Navigation.m_Mode
       value: 3
