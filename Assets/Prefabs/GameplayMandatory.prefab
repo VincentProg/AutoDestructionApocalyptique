@@ -151,7 +151,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 919bf1b85f788a14eab8b69bd88f07b5, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -262,8 +262,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5513603743876565324}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000000002179075, y: 0.7057212, z: 0.00000000217056, w: 0.7084896}
-  m_LocalPosition: {x: -9.474609, y: 9.977261, z: 6.996456}
+  m_LocalRotation: {x: -0.0000000021832667, y: 0.70565367, z: 0.000000002174321, w: 0.7085569}
+  m_LocalPosition: {x: -29.10645, y: 9.977261, z: 6.9155693}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -984,6 +984,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5511224177078657220, guid: 99aa9608fa189ce4aa6d9b02b356e6af, type: 3}
   m_PrefabInstance: {fileID: 5313808411361048728}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2872296964038621545 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7953922392858558961, guid: 99aa9608fa189ce4aa6d9b02b356e6af, type: 3}
+  m_PrefabInstance: {fileID: 5313808411361048728}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 783af5a8020e3c940a78fee7ecb91c5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &5862836261475196902 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1793147457969481598, guid: 99aa9608fa189ce4aa6d9b02b356e6af, type: 3}
@@ -1001,6 +1012,10 @@ PrefabInstance:
       propertyPath: _camera
       value: 
       objectReference: {fileID: 5513603743876565331}
+    - target: {fileID: 545381835, guid: 82d0132fbdf52f64694a32d664c1b03a, type: 3}
+      propertyPath: _startingNumbers
+      value: 
+      objectReference: {fileID: 2872296964038621545}
     - target: {fileID: 545381835, guid: 82d0132fbdf52f64694a32d664c1b03a, type: 3}
       propertyPath: _winLossConditions
       value: 

@@ -157,7 +157,7 @@ MonoBehaviour:
   _speedRotation: 10
   _lowSpeed: 1500
   _highSpeed: 3000
-  _groundDistance: 2
+  _groundDistance: 3
   _loadingBoostDuration: 1
   _boostDuration: 2
   _boostSpeed: 4000
@@ -171,6 +171,8 @@ MonoBehaviour:
   - {fileID: 192614634756996024}
   - {fileID: 7626201180407475508}
   - {fileID: 7763387418584921706}
+  _motorSource: {fileID: 5841525868269967135}
+  _boostPitch: 2
 --- !u!114 &545381832
 MonoBehaviour:
   m_ObjectHideFlags: 0
