@@ -36,16 +36,16 @@ public class DamageCollisionHandler : MonoBehaviour
         {
             StartCoroutine(CoroutineCoolDown());
             _explosivityGauge.TakeDamage(_damagePerImpact);
-        }
-
-        Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
-        if (rb)
-        {
-            Vector3 pos = transform.position;
-            Vector3 colPos = collision.transform.position;
-            Vector3 dir = (pos - colPos).normalized + new Vector3(0,1,0);
             
-            rb.AddForce(dir * (_fridgeRb.velocity.magnitude *_strengthImpact), ForceMode.Impulse);
+            Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
+            if (rb)
+            {
+                Vector3 pos = transform.position;
+                Vector3 colPos = collision.transform.position;
+                Vector3 dir = (pos - colPos).normalized + new Vector3(0,1,0);
+            
+                rb.AddForce(dir * (_fridgeRb.velocity.magnitude *_strengthImpact), ForceMode.Impulse);
+            }
         }
     }
 
