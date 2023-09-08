@@ -8,6 +8,7 @@ public class MovementPlayer : MonoBehaviour
     [SerializeField] float _lowSpeed = 10f;
     [SerializeField] float _highSpeed = 5f;
     float _currentSpeed;
+    float _speed = 0f;
     [SerializeField] float _groundDistance = 0.1f;
     [SerializeField] float _loadingBoostDuration = 1f;
     [SerializeField] float _boostDuration = 2f;

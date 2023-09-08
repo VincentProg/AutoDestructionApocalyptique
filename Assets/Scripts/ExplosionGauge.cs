@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -5,14 +6,13 @@ using UnityEngine.UI;
 public class ExplosionGauge : MonoBehaviour
 {
     [SerializeField] float _maxGaugeValue = 15f;
-    [SerializeField] Slider _slider;
+    [SerializeField] Transform _pointerGauge;
     float _gaugeValue = 0f;
     bool _isInvincible = false;
     [SerializeField] float _autoDamagePerSecond = 0.5f;
 
     public event Action<float> OnValueChanged;
     public bool IsInvincible { get => _isInvincible; set => _isInvincible = value; }
-
     public void TakeDamage(float damage)
     {
         SetGaugeValue(_gaugeValue + damage);
@@ -21,9 +21,9 @@ public class ExplosionGauge : MonoBehaviour
     void SetGaugeValue(float value)
     {
         _gaugeValue = Mathf.Clamp(value, 0f, _maxGaugeValue);
-        if (_slider != null)
+        if (_pointerGauge != null)
         {
-            _slider.value = _gaugeValue /_maxGaugeValue;
+            _pointerGauge.rotation = Quaternion.Euler(0f, 0f, ((_gaugeValue / _maxGaugeValue) * - 180) + 90);
         }
         OnValueChanged?.Invoke(_gaugeValue);
     }
