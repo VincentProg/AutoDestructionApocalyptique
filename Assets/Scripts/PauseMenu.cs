@@ -30,7 +30,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(keyPause))
+        if (Input.GetKeyDown(keyPause) || Input.GetKeyDown(InputManager.Instance.GetKeyCodeFromInput(MachineInput.ButtonBlack)))
         {
             if (isPaused)
             {

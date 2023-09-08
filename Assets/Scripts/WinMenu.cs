@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -13,6 +12,7 @@ public class WinMenu : MonoBehaviour
     [SerializeField]
     private GameObject _menuObject;
     [SerializeField] bool _isWinFridgeMenu;
+    [SerializeField] GameObject _explosionAnimation,_hudObject;
     private void Start()
     {
         _restartButton.onClick.AddListener(Restart);
@@ -28,7 +28,30 @@ public class WinMenu : MonoBehaviour
 
     private void OnWin(bool fridgeWon)
     {
-        _menuObject.SetActive(true);
+        if (fridgeWon) {
+            StartCoroutine(CoroutineMenuDisplay());
+        }
+        else
+        {
+            _menuObject.SetActive(true);
+        }
+    }
+
+    IEnumerator CoroutineMenuDisplay()
+    {
+        if (_explosionAnimation != null)
+        {
+            _explosionAnimation.SetActive(true);
+        }
+        if (_hudObject != null)
+        {
+            _hudObject.SetActive(false);
+        }
+        yield return new WaitForSeconds(1.5f);
+        if (_menuObject != null)
+        {
+            _menuObject.SetActive(true);
+        }
     }
 
     private void OnDestroy()

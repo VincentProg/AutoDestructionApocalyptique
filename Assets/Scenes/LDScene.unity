@@ -35791,6 +35791,10 @@ PrefabInstance:
       propertyPath: _maxGaugeValue
       value: 70
       objectReference: {fileID: 0}
+    - target: {fileID: 2787668892237664860, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: e671b2a253966c645acdd81d0b7c770a, type: 3}
     - target: {fileID: 3122122303256082851, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
       propertyPath: m_LocalScale.x
       value: 79.73
@@ -35859,6 +35863,30 @@ PrefabInstance:
       propertyPath: _finishLine
       value: 
       objectReference: {fileID: 416943594}
+    - target: {fileID: 5233762481850533784, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233762481850533784, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233762481850533784, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233762481850533784, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233762481850533784, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233762481850533784, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5513603743876565325, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
       propertyPath: m_ShowCameraFrustum
       value: 1
@@ -35959,6 +35987,10 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6485344213943723214, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6850313155546248098, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
       propertyPath: m_Name
       value: GameplayMandatory
@@ -35967,8 +35999,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 2787668892237664860, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 4290511529359571581, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
