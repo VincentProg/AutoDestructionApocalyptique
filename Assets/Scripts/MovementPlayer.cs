@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class MovementPlayer : MonoBehaviour
 {
@@ -28,9 +29,14 @@ public class MovementPlayer : MonoBehaviour
     [SerializeField]
     private List<Transform> _wheels;
 
+    [SerializeField] private AudioSource _motorSource;
+    [SerializeField] private float _boostPitch;
+    private float _initialPitch;
+
     private void Awake()
     {
-        _currentSpeed = _highSpeed;    
+        _currentSpeed = _highSpeed;
+        _initialPitch = _motorSource.pitch;
     }
     private void Start()
     {
@@ -180,7 +186,9 @@ public class MovementPlayer : MonoBehaviour
     {
         _isSpeedBoostActive = true;
         _currentSpeed = _boostSpeed;
+        _motorSource.pitch = _boostPitch;
         yield return new WaitForSeconds(_boostDuration);
+        _motorSource.pitch = _initialPitch;
         _currentSpeed = GetSpeedWithoutBoost();
         _isSpeedBoostActive = false;
     }
