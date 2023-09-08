@@ -8,7 +8,8 @@ public class MovementPlayer : MonoBehaviour
     [SerializeField] float _lowSpeed = 10f;
     [SerializeField] float _highSpeed = 5f;
     float _currentSpeed;
-    float _speed = 0f;
+    float _speed;
+    [SerializeField] float _timeToTransitionSpeed = 0.5f;
     [SerializeField] float _groundDistance = 0.1f;
     [SerializeField] float _loadingBoostDuration = 1f;
     [SerializeField] float _boostDuration = 2f;
@@ -16,22 +17,34 @@ public class MovementPlayer : MonoBehaviour
     bool _hasLoadedSpeedBoost = false;
     bool _isSpeedBoostActive = false;
     bool _isAtHighSpeed = true;
-    [SerializeField]bool _isStopped = false;
+    bool _isStopped = true;
 
     [SerializeField] Rigidbody _rigidbody;
     Coroutine _routineBoost;
     [SerializeField] WinLossConditions _winLossConditions;
     [SerializeField] Camera _camera;
     [SerializeField,Range(0f, 180f)] float _angleRotationMax = 45f;
+    [SerializeField] StartingNumbers _startingNumbers;
 
     private void Awake()
     {
-        _currentSpeed = _highSpeed;    
+        _currentSpeed = 0f;
+        _speed = 0f;
     }
     private void Start()
     {
         _winLossConditions.OnWinForklift += OnWin;
         _winLossConditions.OnWinFridge += OnWin;
+        if (_startingNumbers != null)
+        {
+            _startingNumbers.OnStartingEnded += OnCircuitStarted;
+        }
+    }
+
+    private void OnCircuitStarted()
+    {
+        _currentSpeed = _highSpeed;
+        _isStopped = false;
     }
 
     private void Update()
@@ -42,6 +55,7 @@ public class MovementPlayer : MonoBehaviour
             ApplyBoost();
             ChangeSpeed();
         }
+        UpdateSpeed();
     }
     
     private void FixedUpdate()
@@ -165,7 +179,6 @@ public class MovementPlayer : MonoBehaviour
     {
         yield return new WaitForSeconds(_loadingBoostDuration);
         _hasLoadedSpeedBoost = true;
-        Debug.Log("BOOST LOADED");
     }
     IEnumerator CoroutineApplyBoost()
     {
@@ -180,5 +193,13 @@ public class MovementPlayer : MonoBehaviour
     {
         _isStopped = true;
         _rigidbody.velocity = Vector3.zero;
+    }
+
+    void UpdateSpeed()
+    {
+        /*if (_speed != _currentSpeed)
+        {
+            //_speed = Mathf.Lerp(_speed, _currentSpeed, Time.deltaTime * Mathf.Abs(_currentSpeed - _speed));
+        }*/
     }
 }
