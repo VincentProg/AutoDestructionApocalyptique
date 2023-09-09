@@ -43,6 +43,7 @@ public class MovementPlayer : MonoBehaviour
     }
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         _winLossConditions.OnWinForklift += OnWin;
         _winLossConditions.OnWinFridge += OnWin;
         if (_startingNumbers != null)

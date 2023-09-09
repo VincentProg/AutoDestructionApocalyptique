@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum MachineInput
@@ -34,7 +33,6 @@ public class InputManager : MonoBehaviour
 
     [SerializeField] ListInputs _listInputs;
     public static InputManager Instance { get => _instance; }
-    private float _lastMousePositionX;
     [SerializeField] private float _sensibility = 1f;
 
     private void Awake()
@@ -66,11 +64,6 @@ public class InputManager : MonoBehaviour
     }
     public float GetWheelValue()
     {
-        Vector2 currentMousePositionX = Input.mousePosition;
-
-        float mouseDelta = currentMousePositionX.x - _lastMousePositionX;
-
-        _lastMousePositionX = currentMousePositionX.x;
-        return mouseDelta * _sensibility;
+        return Input.GetAxis("Mouse X") * _sensibility;
     } 
 }
