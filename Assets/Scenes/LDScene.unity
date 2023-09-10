@@ -35971,14 +35971,6 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 13400000, guid: 0d0ed90ddc8222c48a31976dcf8cd7c5, type: 2}
-    - target: {fileID: 6050917627739255884, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
-      propertyPath: _listInputs
-      value: 
-      objectReference: {fileID: 11400000, guid: 219cc10b00714d3489544a846ba36c2c, type: 2}
-    - target: {fileID: 6050917627739255884, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
-      propertyPath: _sensibility
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6310287403897465680, guid: 9d46c591b4c723d44b770f1b458c6aec, type: 3}
       propertyPath: m_Size.x
       value: 1

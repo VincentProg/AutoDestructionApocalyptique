@@ -16,13 +16,21 @@ public class CustomMenuNavigation : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(InputManager.Instance.GetKeyCodeFromInput(MachineInput.ButtonUp)))
+        if (Input.GetKeyDown(InputManager.Instance.GetKeyCodeFromInput(MachineInput.ButtonUp)) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             NavigateUp();
         }
-        else if (Input.GetKeyDown(InputManager.Instance.GetKeyCodeFromInput(MachineInput.ButtonDown)))
+        else if (Input.GetKeyDown(InputManager.Instance.GetKeyCodeFromInput(MachineInput.ButtonDown)) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             NavigateDown();
+        }
+
+        if (Input.GetKeyDown(InputManager.Instance.GetKeyCodeFromInput(MachineInput.ButtonBlack)) || Input.GetKeyDown(KeyCode.KeypadEnter))
+        {
+            if (_buttons.Length > 0)
+            {
+                _buttons[selectedIndex].onClick.Invoke();
+            }
         }
     }
 

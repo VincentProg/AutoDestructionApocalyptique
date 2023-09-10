@@ -26,7 +26,7 @@ public class VoicesManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(InputManager.Instance.GetKeyCodeFromInput(MachineInput.ButtonWhite)))
+        if (Input.GetKeyDown(InputManager.Instance.GetKeyCodeFromInput(MachineInput.ButtonBlack)))
         {
             PlayRandomVoice();
         }

@@ -34,6 +34,7 @@ public class InputManager : MonoBehaviour
     [SerializeField] ListInputs _listInputs;
     public static InputManager Instance { get => _instance; }
     [SerializeField] private float _sensibility = 1f;
+    [SerializeField] private float _maxDeltaValue = 4f;
 
     private void Awake()
     {
@@ -64,6 +65,7 @@ public class InputManager : MonoBehaviour
     }
     public float GetWheelValue()
     {
-        return Input.GetAxis("Mouse X") * _sensibility;
+        float deltaX = Mathf.Clamp(Input.GetAxis("Mouse X"), -_maxDeltaValue, _maxDeltaValue);
+        return deltaX * _sensibility;
     } 
 }
